@@ -3,6 +3,7 @@ import vehiculos.*
 
 object luke {
     var recuerdo = null
+    var ciudadesVisistadas = 0
 
     method agregarNuevoRecuerdoDe(unaCiudad) {
         recuerdo = unaCiudad.recuerdo()
@@ -11,6 +12,9 @@ object luke {
         if (unaCiudad.puedeSerVisitadoPor(unVehiculo)){
             unVehiculo.viajar()
             self.agregarNuevoRecuerdoDe(unaCiudad)
+            ciudadesVisistadas += 1
         }
     }
+    method ciudadesVisitadas() = ciudadesVisistadas 
+    method recuerdo() = recuerdo 
 }

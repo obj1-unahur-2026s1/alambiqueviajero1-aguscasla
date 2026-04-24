@@ -31,3 +31,8 @@ object lasVegas {
     method puedeSerVisitadoPor(vehiculo) = ciudadEnHomenaje.puedeSerVisitadoPor(vehiculo)
     method recuerdo() = ciudadEnHomenaje.recuerdo() 
 }
+
+object sanVicente {
+    method recuerdo() = estatuillaDeAserrin
+    method puedeSerVisitadoPor(vehiculo) = vehiculo.esRapido() && vehiculo.tieneSuficienteCombustible()
+}

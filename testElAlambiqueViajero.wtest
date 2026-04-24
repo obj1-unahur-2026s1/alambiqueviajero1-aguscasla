@@ -1,0 +1,43 @@
+import luke.*
+import ciudades.*
+import vehiculos.*
+import recuerdos.*
+
+describe "luke" {
+    test "luke viaja a Buenos Aires con el alambique veloz y guarda su recuerdo" {
+        luke.viajarA(buenosAires, alambiqueVeloz)
+        assert.equals(buenosAires.recuerdo(), luke.recuerdo())
+    }
+    test "luke vuelve a viajar, pero su destino ahora es paris, su recuerdo ya no es el mismo de antes" {
+        luke.viajarA(buenosAires, alambiqueVeloz)
+        luke.viajarA(paris, alambiqueVeloz)
+        assert.equals(paris.recuerdo(), luke.recuerdo())
+    }
+    test "luke solo visista 3 ciudades porque su vehiculo no tiene combustible para algunas ciudades" {
+        luke.viajarA(buenosAires, alambiqueVeloz)
+        luke.viajarA(paris, alambiqueVeloz)
+        luke.viajarA(bagdad, alambiqueVeloz)
+        luke.viajarA(sanVicente, alambiqueVeloz)
+        assert.equals(3, luke.ciudadesVisitadas())
+    }
+    test "luke viaja a Las Vegas mientras se conmemora a San Vicente y se trae un recuerdo de dicho lugar "{
+        lasVegas.conmemorandoA(sanVicente)
+        luke.viajarA(lasVegas, alambiqueVeloz)
+        assert.equals(sanVicente.recuerdo(), luke.recuerdo())
+    }
+    test "luke suma experiencia con la chancha para viajar a San Vicente y traer un recuerdo tambien" {
+        luke.viajarA(bagdad, laChancha)
+        luke.viajarA(bagdad, laChancha)
+        luke.viajarA(bagdad, laChancha)
+        luke.viajarA(sanVicente, laChancha)
+        assert.equals(sanVicente.recuerdo(), luke.recuerdo())
+    }
+    test "luke viaja a todas las ciudades con la chancha de manera estrategica y acumula un total de 5 ciudades visitadas" {
+        luke.viajarA(bagdad, laChancha)
+        luke.viajarA(paris, laChancha)
+        luke.viajarA(lasVegas, laChancha)
+        luke.viajarA(buenosAires, laChancha)
+        luke.viajarA(sanVicente, laChancha)
+        assert.equals(5, luke.ciudadesVisitadas())
+    }
+}

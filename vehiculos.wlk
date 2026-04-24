@@ -1,3 +1,5 @@
+import luke.*
+
 object alambiqueVeloz {
     var combustible = 15
     var desgaste = 0
@@ -12,25 +14,15 @@ object alambiqueVeloz {
 }
 
 object laChancha {
-    var combustible = 20
+    var combustible = 30
     var velocidad = 1
-    var viajes = 0
 
     method tieneSuficienteCombustible() = combustible > 15
-    method esRapido() = velocidad >= 5
-
-    method tieneExperiencia() = viajes >= 3
-
-    method aumentarVelocidad() {
-        if (self.tieneExperiencia()){
-            velocidad += 1
-            viajes -= 3
-        }
-    }
+    method esRapido() = velocidad >= 3 && luke.ciudadesVisitadas() >= 3
 
     method viajar() {
-        combustible -= 3
-        viajes += 1
+        combustible -= 2
+        velocidad += 1
     } 
 
 }
