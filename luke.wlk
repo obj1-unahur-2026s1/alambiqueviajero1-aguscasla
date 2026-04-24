@@ -2,7 +2,7 @@ import ciudades.*
 import vehiculos.*
 
 object luke {
-    var recuerdo = null
+    var recuerdo = paris.recuerdo()
     var ciudadesVisistadas = 0
 
     method agregarNuevoRecuerdoDe(unaCiudad) {

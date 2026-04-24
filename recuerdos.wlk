@@ -5,5 +5,4 @@ object mate {
 object arena {
 }
 object estatuillaDeAserrin {
-  
 }
